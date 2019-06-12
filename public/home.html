@@ -15,20 +15,22 @@
    <title>home</title>
 </head>
 <body>
-   <p>welcome to friend finder... find a friend?</p>
+        <div class='container'>
+            <div class="row">
+   <p class = 'jumbotron'>welcome to friend finder... find a friend?</p>
    <a href='./survey' >take the survey, join the friend group.</a>
-   <div class='container'>
+</div>
        <div class='row'>
            Current friends:
        </div>
        <div class="row">
-           <div class='col s5'>
+           <div class='col-sm-5 border'>
                <div>names</div>
                <div id='names'>
 
                </div>
            </div>
-           <div class= 'col s5'>
+           <div class= 'col-sm-5 border'>
                <div>scores</div>
                <div id='scores'>
 
@@ -38,6 +40,15 @@
 
    </div>
 <script>
+     $.ajax({ url: "/api/friends", method: "GET" }).then(function(res){
+         console.log(res);
+     for (let i = 0; i < res.length; i++) {
+   var friendName = $("<p>").text(res[i].name);
+   var friendScores = $("<p>").text(res[i].answers.join(' '));
+   $("#names").append(friendName);
+   $("#scores").append(friendScores);
+}
+})
 </script>
 </body>
 
