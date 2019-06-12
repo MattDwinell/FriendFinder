@@ -147,13 +147,16 @@
             console.log(newFriend);
 
 
-
+            if(name && q1 && q2 && q3 && q4 && q5 && q6 && q7 && q8 && q9 && q10 ){
             $.post("/api/friends", newFriend)
                 .then(function (res) {
                     console.log(res);
                     alert('you are most similiar to: ' + res.name + '!');
                     window.location.href="./home";
                 });
+            } else {
+                alert('Please fill out all of the options and add your name. thank you')
+            }
         })
 
     </script>
