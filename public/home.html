@@ -29,7 +29,7 @@
            Current friends:
        </div>
        <div class="row">
-           <div class='col-sm-5 border'>
+           <div class='col-sm-3 border'>
                <div>names</div>
                <div id='names'>
 
@@ -41,6 +41,10 @@
 
                </div>
            </div>
+           <div class="col-sm-3">
+               <div> url of picture</div>
+               <div id='pictures'></div>
+           </div>
        </div>
 
    </div>
@@ -50,8 +54,10 @@
      for (let i = 0; i < res.length; i++) {
    var friendName = $("<p>").text(res[i].name);
    var friendScores = $("<p>").text(res[i].answers.join(' '));
+    var friendPicture = $("<p>").text(res[i].picture);
    $("#names").append(friendName);
    $("#scores").append(friendScores);
+   $("#pictures").append(friendPicture);
 }
 })
 </script>

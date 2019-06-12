@@ -21,6 +21,7 @@
     <div class='container'>
         <div class="row">
             <span>Please input your name:</span> <input id='name' type='text' placeholder="name">
+            <span> please input the url for a picture:</span><input id='picture' type='text' placeholder = 'url goes here'>
         </div>
         <div class='row border'>
             <p> rate the following questions on a scale of 1 to 5-- 1 being strongly disagree, 5 being strongly agree
@@ -137,11 +138,13 @@
             var q9 = $("input[name='q9']:checked").val();
             var q10 = $("input[name='q10']:checked").val();
             var name = $("#name").val();
+            var picture = $("#picture").val();
 
             var answerArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 
             var newFriend = {
                 name: name,
+                picture: picture,
                 answers: answerArray
             }
             console.log(newFriend);
